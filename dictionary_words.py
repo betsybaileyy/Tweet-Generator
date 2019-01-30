@@ -16,4 +16,4 @@ for i in range(number_of_words):
 grammar = ' '.join(sentence) + ('.')
 proper_grammar = grammar.capitalize()
 
-print(grammar)
+print(proper_grammar)
