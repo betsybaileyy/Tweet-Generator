@@ -1,19 +1,21 @@
 import random
+import sys
 
 
-f = open('/usr/share/dict/words', 'r')
+with open('/usr/share/dict/words') as f:
 
-words = f.read().split()
+    words = f.read().split()
 
-number_of_words = int(5)
+    number_of_words = int(sys.argv[1])
 
-sentence = []
 
-for i in range(number_of_words):
-    random_word = random.choice(words)
-    sentence.append(random_word)
+    sentence = []
 
-grammar = ' '.join(sentence) + ('.')
-proper_grammar = grammar.capitalize()
+    for i in range(number_of_words):
+        random_word = random.choice(words)
+        sentence.append(random_word)
 
-print(proper_grammar)
+    grammar = ' '.join(sentence) + ('.')
+    proper_grammar = grammar.capitalize()
+
+    print(proper_grammar)
