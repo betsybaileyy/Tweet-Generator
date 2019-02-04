@@ -32,13 +32,15 @@ word_frequency(seuss)
 # number of unique words in a the histogram
 # HOW MANY DIFFERENT WORDS ARE USED?
 
-# def unique_words(word_frequency):
-#     counter = 0
-#     for g in word_frequency.items():
-#         if word_frequency[g] is 1:
-#             counter += 1
-#     return counter
-#
+def unique_words(word_frequency):
+    counter = 0
+    for k, v in word_frequency.items():
+        if word_frequency[k] is 1:
+            counter += 1
+    print(counter)
+
+print(unique_words())
+
 # print(unique_words(seuss))
 
 
