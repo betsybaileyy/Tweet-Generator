@@ -24,9 +24,6 @@ def word_frequency(seuss_txt):
     print(new_list)
     return new_list
 
-
-
-
 # As a DICTIONARY
 
 def dictionary(seuss_txt):
@@ -36,8 +33,6 @@ def dictionary(seuss_txt):
         table[i] = table.get(i, 0) + 1
     print(table)
     return table
-
-
 
 # TO DO: refactor this code so that when it prints to the console it only does so once.
 # As a TUPLE
@@ -73,14 +68,10 @@ def tuple_o_gram(word_list, text):
                 list_of_tpls.append((word, 1))
                 # in_list = False
 
-
-
-
 if __name__ == "__main__":
     word_frequency(seuss_txt)
     dictionary(seuss_txt)
     print(tuple_o_gram(word_list, seuss_txt))
-
 
 '''
 Does these problems still need to be done? (problem is below)
