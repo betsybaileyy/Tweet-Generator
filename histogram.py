@@ -39,7 +39,7 @@ def dictionary(seuss_txt):
 
 dictionary(seuss_txt)
 
-
+# TO DO: refactor this code so that when it prints to the console it only does so once.
 # As a TUPLE
 word_list = [word for word in seuss_txt.split()]
 
