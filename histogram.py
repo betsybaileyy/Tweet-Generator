@@ -1,11 +1,9 @@
 
 seuss_txt = "one fish two fish red fish blue fish red two"
 
-# random()-> 0=<x<1 and uniform(a,b)
-
-# 1. histogram() function that takes text and stores each
-# word along with the frequency of that word
-# WHAT IS THE MOST/LEAST FREQUENT WORD?
+'''
+TODO: Update this so it takes in an external text file and doesn't only use Dr.Seuss material
+'''
 
 # As a LIST OF LISTS
 
@@ -28,9 +26,6 @@ def word_frequency(seuss_txt):
 
 word_frequency(seuss_txt)
 
-# 2. unique_words() takes histogram() argument and returns the total
-# number of unique words in a the histogram
-# HOW MANY DIFFERENT WORDS ARE USED?
 
 # As a DICTIONARY
 
@@ -43,7 +38,6 @@ def dictionary(seuss_txt):
     return table
 
 dictionary(seuss_txt)
-
 
 
 # As a TUPLE
@@ -78,3 +72,15 @@ def tuple_o_gram(word_list, text):
 
 
 print(tuple_o_gram(word_list, seuss_txt))
+
+
+'''
+Does these problems still need to be done? (problem is below)
+'''
+# 1. histogram() function that takes text and stores each
+# word along with the frequency of that word
+# WHAT IS THE MOST/LEAST FREQUENT WORD?
+
+# 2. unique_words() takes histogram() argument and returns the total
+# number of unique words in a the histogram
+# HOW MANY DIFFERENT WORDS ARE USED?
