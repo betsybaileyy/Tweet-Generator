@@ -24,7 +24,7 @@ def word_frequency(seuss_txt):
     print(new_list)
     return new_list
 
-word_frequency(seuss_txt)
+
 
 
 # As a DICTIONARY
@@ -37,7 +37,7 @@ def dictionary(seuss_txt):
     print(table)
     return table
 
-dictionary(seuss_txt)
+
 
 # TO DO: refactor this code so that when it prints to the console it only does so once.
 # As a TUPLE
@@ -71,7 +71,12 @@ def tuple_o_gram(word_list, text):
                 # in_list = False
 
 
-print(tuple_o_gram(word_list, seuss_txt))
+
+
+if __name__ == "__main__":
+    word_frequency(seuss_txt)
+    dictionary(seuss_txt)
+    print(tuple_o_gram(word_list, seuss_txt))
 
 
 '''
