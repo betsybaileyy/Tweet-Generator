@@ -41,6 +41,9 @@ def dictionary(seuss_txt):
 
 # TO DO: refactor this code so that when it prints to the console it only does so once.
 # As a TUPLE
+'''
+Phyllis helped me with this function and my understanding of it SO MUCH!! Thank you, Phyllis!
+'''
 word_list = [word for word in seuss_txt.split()]
 
 def tuple_o_gram(word_list, text):
