@@ -18,9 +18,24 @@ def get_random_word(histogram):
     random_index = random.randint(0, len(keys)-1)
     random_word = word_list[random_index]
 
-    return random_word
+    return
 
-# print(get_random_word(histogram))
+def frequency(histogram):
+    keys = histogram.keys()
+    # print('Keys: {}'.format(keys))
+    word_list = list(keys)
+    count = 0
+    dictionary = histogram(histogram)
+    for key in dictionary:
+        count += dictionary[key]
+    rand = random.randrange(count)
+    num_total = 0
+    for key in dic:
+        num_total += dictionary[key]
+        if rand < num_total:
+            return key
+
+print(frequency(histogram))
 
 def rand_test(histogram):
     # for (let i = 0; i < 10000; i+=1) {}
@@ -33,4 +48,4 @@ def rand_test(histogram):
         counter -= 1
     return dictionary(new_list)
 
-print(rand_test(histogram))
+# print(rand_test(histogram))
