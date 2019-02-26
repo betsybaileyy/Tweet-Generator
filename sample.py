@@ -1,10 +1,10 @@
-from histogram import dictionary
+from histogram import histogram
 import random
 
 # TODO: perhaps name the dictionary method, histogram because dictionary means
 # something different
 _list = 'one fish two fish red fish blue fish'.split(' ')
-histogram = dictionary(_list)
+fish_o_gram = histogram(_list)
 # print('Histogram: {}'.format(histogram))
 
 '''
@@ -18,24 +18,27 @@ def get_random_word(histogram):
     random_index = random.randint(0, len(keys)-1)
     random_word = word_list[random_index]
 
-    return
+    return random_word
+
+# def frequency(histogram):
+#     keys = histogram.keys()
+#     # print('Keys: {}'.format(keys))
+#     word_list = list(keys)
+#     count = 0
+#     # dictionary = histogram(histogram)
+#     for key in histogram:
+#         count += histogram[key]
+#     rand = random.randrange(count)
+#     num_total = 0
+#     for key in histogram:
+#         num_total += histogram[key]
+#         if rand < num_total:
+#             return key
 
 def frequency(histogram):
-    keys = histogram.keys()
-    # print('Keys: {}'.format(keys))
-    word_list = list(keys)
-    count = 0
-    dictionary = histogram(histogram)
-    for key in dictionary:
-        count += dictionary[key]
-    rand = random.randrange(count)
-    num_total = 0
-    for key in dictionary:
-        num_total += dictionary[key]
-        if rand < num_total:
-            return key
+    pass
 
-print(frequency(histogram))
+print(frequency(fish_o_gram))
 
 def rand_test(histogram):
     # for (let i = 0; i < 10000; i+=1) {}
@@ -43,9 +46,9 @@ def rand_test(histogram):
     counter = 10000
     new_list = []
     while counter:
-        random_word = get_random_word(histogram)
+        random_word = get_random_word(fish_o_gram)
         new_list.append(random_word)
         counter -= 1
-    return dictionary(new_list)
+    return histogram(new_list)
 
-# print(rand_test(histogram))
+print(rand_test(histogram))
