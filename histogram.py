@@ -23,7 +23,7 @@ def word_frequency(world_list):
 
 # As a DICTIONARY
 
-def dictionary(word_list):
+def histogram(word_list):
     table = dict()
     for i in word_list:
         table[i] = table.get(i, 0) + 1

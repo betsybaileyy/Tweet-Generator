@@ -36,6 +36,11 @@ class HashTable(object):
         """Return a list of all values in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all buckets
+        all_values = []
+        for bucket in self.buckets:
+            for key, value in bucket.items():
+                all_values.append(value)
+        return all_values
         # TODO: Collect all values in each bucket
 
     def items(self):
@@ -50,7 +55,14 @@ class HashTable(object):
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
         TODO: Running time: O(???) Why and under what conditions?"""
+        length = 0
+        pair = []
         # TODO: Loop through all buckets
+        for bucket in self.buckets:
+            length += bucket.length()
+        return length
+
+
         # TODO: Count number of key-value entries in each bucket
 
     def contains(self, key):
@@ -60,7 +72,7 @@ class HashTable(object):
         # Find bucket where given key belongs
         index = self._bucket_index(key)
         bucket = self.buckets[index]
-        bucket.find(lambda key_value: key_value[0] == key)
+        entry = bucket.find(lambda key_value: key_value[0] == key)
 
         # Examine the entry that was returned - is it none?
         if entry is None:
@@ -96,11 +108,14 @@ class HashTable(object):
         bucket = self.buckets[index]
 
         # TODO: Check if key-value entry exists in bucket
+        # entry = bucket.find(lambda key_value)
         # TODO: If found, update value associated with given key
         # TODO: Otherwise, insert given key-value entry into bucket
-
-        entry = (key, value)
-        bucket.append(entry)
+        if self.contains(key):
+            # change the value to the new Valu
+        elif not self.contains(key):
+            entry = (key, value)
+            bucket.append(entry)
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.

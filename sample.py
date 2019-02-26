@@ -30,7 +30,7 @@ def frequency(histogram):
         count += dictionary[key]
     rand = random.randrange(count)
     num_total = 0
-    for key in dic:
+    for key in dictionary:
         num_total += dictionary[key]
         if rand < num_total:
             return key

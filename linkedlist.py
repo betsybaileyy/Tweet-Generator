@@ -16,6 +16,7 @@ class LinkedList(object):
         """Initialize this linked list and append the given items, if any."""
         self.head = None  # First node
         self.tail = None  # Last node
+        self.size = 0
         # Append given items
         if items is not None:
             for item in items:
@@ -46,11 +47,12 @@ class LinkedList(object):
         return items  # O(1) time to return list
 
     def is_empty(self):
-        """Return a boolean indicating whether this linked list is empty."""
+        """Return a boolean indicating whether this linked list is empty. O(1)"""
         return self.head is None
 
     def length(self):
-        """TODO: Running time: O(???) Why and under what conditions?"""
+        """TODO: Running time: O(n) Bc we have to iterate over all nodes
+        and count one for each?"""
         #setting the counter at 0 and defining node
         count = 0
         node = self.head
@@ -62,7 +64,7 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Running time: O(1) Bc We are only changing the tail node"""
 
         new_node = Node(item)
 
@@ -79,7 +81,10 @@ class LinkedList(object):
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Running time: O(1) Because we only change the first
+        node and do not loop through all nodes."""
+
+        # this new node
         new_node = Node(item)
 
         # if the list is empty make this new node both the head and tail
@@ -93,8 +98,10 @@ class LinkedList(object):
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
-        TODO: Best case running time: O(???) Why and under what conditions?
-        TODO: Worst case running time: O(???) Why and under what conditions?"""
+        TODO: Best case running time: O(1) If item is near the head of the list.
+        TODO: Worst case running time: O(n) if item is near the tail of the list
+        or not present and we need to loop through all n nodes in the list.
+        (We did the O Notation for this in class)"""
         # set the node as the head node
         node = self.head
         while node is not None: # for every node that exists
@@ -108,10 +115,38 @@ class LinkedList(object):
         """Delete the given item from this linked list, or raise ValueError.
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
-        # TODO: Loop through all nodes to find one whose data matches given item
-        # TODO: Update previous node to skip around node with matching data
-        # TODO: Otherwise raise error to tell user that delete has failed
-        # Hint: raise ValueError('Item not found: {}'.format(item))
+        current_node = self.head
+        previous_node = None
+        found = False
+
+        while current_node:
+            if self.head.data == item:
+                if self.head.next is not None:
+                    self.head = self.head.next
+                    found = True
+                    break
+                else:
+                    self.head = None
+                    self.tail = None
+                    found = True
+                    break
+            elif current_node.data == item:
+                if current_node == self.tail:
+                    previous_node.next = None
+                    self.tail = previous_node
+                    found = True
+                    break
+                else:
+                    previous_node.next = current_node.next
+                    found = True
+                    break
+            else:
+                previous_node = current_node
+                current_node = current_node.next
+
+        if not found:
+            raise ValueError('Item not found: {}'.format(item))
+
 
 
 def test_linked_list():
@@ -129,7 +164,7 @@ def test_linked_list():
     print('length: {}'.format(ll.length()))
 
     # Enable this after implementing delete method
-    delete_implemented = False
+    delete_implemented = True
     if delete_implemented:
         print('\nTesting delete:')
         for item in ['B', 'C', 'A']:
