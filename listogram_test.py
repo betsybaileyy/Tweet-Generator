@@ -19,8 +19,8 @@ class ListogramTest(unittest.TestCase):
         listogram = Listogram(self.fish_words)
         # Verify histogram as list of entries like [(word, count)]
         '''My code only passes all tests if two lines of code below are commented out. IDK why :('''
-        assert len(listogram) == 5 '''WORKS IF THIS LINE IS COMMENTED OUT'''
-        assert listogram == self.fish_list '''WORKS IF THIS LINE IS COMMENTED OUT'''
+        assert len(listogram) == 5 # WORKS IF THIS LINE IS COMMENTED OUT
+        assert listogram == self.fish_list # WORKS IF THIS LINE IS COMMENTED OUT
         self.assertCountEqual(listogram, self.fish_list)  # Ignore item order
         # Verify histogram as dictionary of entries like {word: count}
         dictogram = dict(listogram)
