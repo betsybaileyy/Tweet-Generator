@@ -17,9 +17,9 @@ class Listogram(list):
 
     def add_count(self, word, count=1):
         """Increase frequency count of given word by given count amount."""
-
-        self.tokens += count #tokens are the count pretty much
         found = False #setting found to False
+        self.tokens += count #tokens are the count pretty much
+
 
         for item in self: #loop through every word in the array
             if item[0] == word: # if the item at index 0 of the key value pair equals the word
@@ -30,7 +30,7 @@ class Listogram(list):
             self.types += 1 #add another type
             self.append([word, count]) #add to the dictionary
 
-
+        return
 
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
@@ -48,7 +48,8 @@ class Listogram(list):
         for item in self:
             if word == item[0]:
                 return True
-        return False
+        if found == False:
+            return False
 
 
     def _index(self, target):
@@ -58,7 +59,7 @@ class Listogram(list):
         for i in rang(len(self)):
             if self[i][0] == target:
                 return i
-        return i
+        return None
 
 
 def print_histogram(word_list):
