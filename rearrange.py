@@ -1,10 +1,18 @@
-from random import shuffle
+import random, sys
 
-'''
-I did not understand at the time I did this exericise that we were not allowed to use the shuffle function - I will redo this.
-'''
+def shuffle_words(sys):
+    # taking sentence from command line and rearragning it
 
-my_dogs = ['Caesar', 'Margaux', 'Eloise', 'Nick', 'Annie']
+    sys.argv.pop(0)
 
-shuffle(my_dogs)
-print(my_dogs)
+    sentence = []
+
+    while len(sys.argv) > 0:
+        chosen = random.choice(sys.argv)
+        sentence.append(chosen)
+        sys.argv.remove(chosen)
+    return sentence
+
+if __name__ == '__main__':
+    params = sys.argv
+    print(shuffle_words(sys))
