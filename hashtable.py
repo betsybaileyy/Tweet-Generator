@@ -107,16 +107,13 @@ class HashTable(object):
         index = self._bucket_index(key)
         bucket = self.buckets[index]
 
-        # TODO: Check if key-value entry exists in bucket
-        # entry = bucket.find(lambda key_value)
-        # TODO: If found, update value associated with given key
-        # TODO: Otherwise, insert given key-value entry into bucket
-        if self.contains(key):
-            # change the value to the new Valu
-            pass
-        elif not self.contains(key):
-            entry = (key, value)
-            bucket.append(entry)
+        entry = bucket.find(lambda key_value: key_value[0] == key)
+
+        if entry:
+            bucket.delete(entry)
+
+        entry = (key, value)
+        bucket.append(entry)
 
 
 
