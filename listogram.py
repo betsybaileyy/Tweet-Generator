@@ -31,14 +31,18 @@ class Listogram(list):
             self.append([word, count])
 
 
-
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
-        # TODO: Retrieve word frequency count
+
+        for item in self: #creating a for loop to iterate thrugh all all
+            if item[0] == word: # if the item at index 0 of the key value pair equals the word
+                return item[1]
+        return 0
 
     def __contains__(self, word):
         """Return boolean indicating if given word is in this histogram."""
         # TODO: Check if word is in this histogram
+
 
     def _index(self, target):
         """Return the index of entry containing given target word if found in
