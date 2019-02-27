@@ -13,6 +13,18 @@ def shuffle_words(sys):
         sys.argv.remove(chosen)
     return sentence
 
+# def reverse(sys):
+#     sys.argv.pop(0)
+#
+#     input = sys.argv
+#
+#     reverse_sentence = []
+# 
+#     for word in input:
+#         reverse_sentence.insert(0, word)
+#     return ' '.join(reverse_sentence)
+
 if __name__ == '__main__':
     params = sys.argv
     print(shuffle_words(sys))
+    # print(reverse(sys))
