@@ -22,13 +22,14 @@ class Listogram(list):
         found = False #setting found to False
 
         for item in self: #loop through every word in the array
-            if item[0] == word # if the item at index 0 of the key value pair equals the word
+            if item[0] == word: # if the item at index 0 of the key value pair equals the word
                 item[1] += count # add the item at index 1 to the count (frequency)
                 found = True
 
         if not found: #if found not true then
-            self.types += 1
-            self.append([word, count])
+            self.types += 1 #add another type
+            self.append([word, count]) #add to the dictionary
+
 
 
     def frequency(self, word):
@@ -39,15 +40,25 @@ class Listogram(list):
                 return item[1]
         return 0
 
+
+
     def __contains__(self, word):
         """Return boolean indicating if given word is in this histogram."""
-        # TODO: Check if word is in this histogram
+        found = False
+        for item in self:
+            if word == item[0]:
+                return True
+        return False
 
 
     def _index(self, target):
         """Return the index of entry containing given target word if found in
         this histogram, or None if target word is not found."""
-        # TODO: Implement linear search to find index of entry with target word
+
+        for i in rang(len(self)):
+            if self[i][0] == target:
+                return i
+        return i
 
 
 def print_histogram(word_list):
