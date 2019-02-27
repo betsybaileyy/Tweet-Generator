@@ -23,7 +23,7 @@ def word_frequency(world_list):
 
 # As a DICTIONARY
 
-def histogram(word_list):
+def dictionary(word_list):
     table = dict()
     for i in word_list:
         table[i] = table.get(i, 0) + 1
@@ -68,18 +68,9 @@ def tuple_o_gram(word_list):
 if __name__ == "__main__":
     seuss_txt = "one fish two fish red fish blue fish"
     word_list = seuss_txt.split()
-    # print(word_frequency(word_list))
-    # print(dictionary(word_list))
-    # print(tuple_o_gram(word_list))
-
-
-'''
-Does these problems still need to be done? (problem is below)
-'''
-# 1. histogram() function that takes text and stores each
-# word along with the frequency of that word
-# WHAT IS THE MOST/LEAST FREQUENT WORD?
-
-# 2. unique_words() takes histogram() argument and returns the total
-# number of unique words in a the histogram
-# HOW MANY DIFFERENT WORDS ARE USED?
+    print("1.) As a LIST OF LISTS:")
+    print(word_frequency(word_list))
+    print("2.) As a DICTIONARY:")
+    print(dictionary(word_list))
+    print("3.) As a TUPLE:")
+    print(tuple_o_gram(word_list))
