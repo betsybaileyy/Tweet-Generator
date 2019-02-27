@@ -25,13 +25,16 @@ class Dictogram(dict):
             #if yes, add it to the count
             self[word] += count
         else:
-            self[word] = 1
+            self[word] = count
             self.types += 1
 
 
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
-
+        if word in self:
+            return self[word]
+        else:
+            return 0
 
 
 def print_histogram(word_list):
