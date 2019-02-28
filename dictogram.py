@@ -25,6 +25,7 @@ class Dictogram(dict):
             #if yes, add it to the count
             self[word] += count
         else:
+            #if not, it is a new type so add a new type
             self[word] = count
             self.types += 1
 

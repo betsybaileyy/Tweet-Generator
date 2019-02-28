@@ -71,7 +71,7 @@ class HashTable(object):
 
         # Find bucket where given key belongs
         index = self._bucket_index(key)
-        bucket = self.buckets[index]
+        bucket = self.buckets[index] #THIS IS AN ARRAY!
         entry = bucket.find(lambda key_value: key_value[0] == key)
 
         # Examine the entry that was returned - is it none?
@@ -87,7 +87,7 @@ class HashTable(object):
         """Return the value associated with the given key, or raise KeyError.
         TODO: Running time: O(n) trying to determine if the bucket conatins the given key"""
         # Find bucket where given key belongs
-        bucket = self.buckets[self._bucket_index(key)]
+        bucket = self.buckets[self._bucket_index(key)] #0(1) to calculate index
 
         # Check if key-value entry exists in bucket
         entry = bucket.find(lambda key_value: key_value[0] == key)
@@ -99,6 +99,7 @@ class HashTable(object):
         # Otherwise, raise error to tell user get failed
         else:
             raise KeyError('Key not found: {}'.format(key))
+
 
     def set(self, key, value): # coded in class
         """Insert or update the given key with its associated value.
@@ -116,25 +117,20 @@ class HashTable(object):
         bucket.append(entry)
 
 
-
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
         TODO: Running time: O(n) because we look into every bucket to determine wether or not the value is there until we find it"""
-        # TODO: Find bucket where given key belongs
+        # Find bucket where given key belongs
         bucket = self.buckets[self._bucket_index(key)]
         value = self.get(key)
         tuple = (key, value)
-        # take the hash number and modulous it by the number of buckets, the remainder
-        # TODO: Check if key-value entry exists in bucket
+        # Check if key-value entry exists in bucket
         tuple_exist = self.contains(key)
-        # TODO: If found, delete entry associated with given key
+        # If found, delete entry associated with given key
         if tuple_exist is True:
             bucket.delete(tuple)
-        else:
+        else: #Otherwise, raise error to tell user delete failed
             raise KeyError('Key not found: {}'.format(key))
-
-        # TODO: Otherwise, raise error to tell user delete failed
-        # Hint: raise KeyError('Key not found: {}'.format(key))
 
 
 def test_hash_table():

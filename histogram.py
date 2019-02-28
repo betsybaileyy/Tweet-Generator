@@ -25,8 +25,8 @@ def word_frequency(world_list):
 
 def dictionary(word_list):
     table = dict()
-    for i in word_list:
-        table[i] = table.get(i, 0) + 1
+    for word in word_list:
+        table[word] = table.get(word, 0) + 1
     # print(table)
     return table
 
