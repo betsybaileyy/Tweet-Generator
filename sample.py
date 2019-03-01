@@ -22,6 +22,9 @@ def get_random_word(histogram):
 # Getting a random word taking into account the frequency
 # of that word, which will affect the likelyhood of that
 # word being chosen.
+'''
+Thank you ALAN for getting me unblocked with this function :)
+'''
 def weighted_random(histogram):
     # Declaring tokens (total number of word occurences)
     tokens = 0
