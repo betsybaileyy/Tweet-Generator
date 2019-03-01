@@ -2,13 +2,8 @@ from histogram import dictionary
 from dictogram import Dictogram
 import random
 
-
-
-# TODO: perhaps name the dictionary method, histogram because dictionary means
-# something different
 _list = 'one fish two fish red fish blue fish'.split(' ')
 histogram = Dictogram(_list)
-# print('Histogram: {}'.format(histogram))
 
 '''
 Justin helped me map out and understand how to create
@@ -55,8 +50,6 @@ def weighted_random(histogram):
         if cumulative_prob >= random_number:
             return word
 
-
-
 print(weighted_random(histogram))
 
 def rand_test(histogram):
@@ -71,33 +64,3 @@ def rand_test(histogram):
     return dictionary(new_list)
 
 print(rand_test(histogram))
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def frequency(histogram):
-#     keys = histogram.keys()
-#     # print('Keys: {}'.format(keys))
-#     word_list = list(keys)
-#     count = 0
-#     # dictionary = histogram(histogram)
-#     for key in histogram:
-#         count += histogram[key]
-#     rand = random.randrange(count)
-#     num_total = 0
-#     for key in histogram:
-#         num_total += histogram[key]
-#         if rand < num_total:
-#             return key
-
-# def frequency(histogram):
-#     pass

@@ -1,9 +1,4 @@
 
-
-'''
-TODO: Update this so it takes in an external text file and doesn't only use Dr.Seuss material
-'''
-
 # As a LIST OF LISTS
 def word_frequency(world_list):
     new_list = []
@@ -18,25 +13,18 @@ def word_frequency(world_list):
                     this_word[1] += 1
                 if not word_found:
                     new_list.append([word, 1])
-    # print(new_list)
     return new_list
 
 # As a DICTIONARY
-
 def dictionary(word_list):
     table = dict()
     for word in word_list:
         table[word] = table.get(word, 0) + 1
-    # print(table)
     return table
 
-# TO DO: refactor this code so that when it prints to the console it only does so once.
-# As a TUPLE
 '''
 Phyllis helped me with this function and my understanding of it SO MUCH!! Thank you, Phyllis!
 '''
-# word_list = [word for word in seuss_txt.split()]
-
 def tuple_o_gram(word_list):
     count = 0
     list_of_tpls = []
