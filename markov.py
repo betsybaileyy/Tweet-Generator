@@ -9,7 +9,7 @@ BIG shoutout to Ansel for helping me with this function. THANK YOU ANSEL!!
 def markov_markov(word_list): #takes in the word_list
 
     new_exciting_dictogram = {} #creating the new dictogram variable, set as empty (obviously)
-
+    # test comment
     for index in range(len(word_list) - 1):
         word = word_list[index]
         next_word = word_list[index + 1]
