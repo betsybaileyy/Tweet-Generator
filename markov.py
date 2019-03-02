@@ -23,3 +23,22 @@ def markov_markov(word_list): #takes in the word_list
     return new_exciting_dictogram
 
 print(markov_markov(word_list))
+
+# write a function that structures how to make a sentence
+# in that function for each part of the sentence, specify how it should use a markov chain to choose a word for each part of the
+
+choose the first word in the sentence
+def 
+
+store each word in an array
+
+look at last word in array = left_word #this is the key inthe markov chain
+    this key will return a dictionary
+
+select one of the keys from that dictinary as the right_word
+    add this to the array, it will become the new left_word
+
+
+
+
+def sentence
