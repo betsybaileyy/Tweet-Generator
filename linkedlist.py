@@ -51,7 +51,7 @@ class LinkedList(object):
         return self.head is None
 
     def length(self):
-        """TODO: Running time: O(n) Bc we have to iterate over all nodes
+        """Running time: O(n) Bc we have to iterate over all nodes
         and count one for each?"""
         #setting the counter at 0 and defining node
         count = 0
@@ -64,7 +64,7 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        TODO: Running time: O(1) Bc We are only changing the tail node"""
+        Running time: O(1) Bc We are only changing the tail node"""
 
         new_node = Node(item)
 
