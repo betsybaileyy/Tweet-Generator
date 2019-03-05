@@ -24,7 +24,8 @@ class HashTable(object):
 
     def keys(self):
         """Return a list of all keys in this hash table.
-        Running time: O(n) Because every item in every bucket gets looped through to append new item"""
+        Running time: O(n) Because every item in every
+        bucket gets looped through to append new item"""
         # Collect all keys in each bucket
         all_keys = []
         for bucket in self.buckets:
@@ -34,7 +35,8 @@ class HashTable(object):
 
     def values(self):
         """Return a list of all values in this hash table.
-        Running time: O(n) we are looping through all of the buckets to append values to an array"""
+        Running time: O(n) we are looping through all of
+        the buckets to append values to an array"""
         # Loop through all buckets
         all_values = []
         for bucket in self.buckets:
@@ -45,7 +47,8 @@ class HashTable(object):
 
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table.
-        Running time: O(n) retrieves the key value pairs at each entry in all buckets(NOT SURE ABT THIS ONE)"""
+        Running time: O(n) retrieves the key value pairs at each entry in all
+        buckets(NOT SURE ABT THIS ONE)"""
         # Collect all pairs of key-value entries in each bucket
         all_items = []
         for bucket in self.buckets:
@@ -101,7 +104,8 @@ class HashTable(object):
 
     def set(self, key, value): # coded in class
         """Insert or update the given key with its associated value.
-        Running time: O(n) because we search through every value until we find one that matches, delete it, then append the new entry"""
+        Running time: O(n) because we search through every value until
+        we find one that matches, delete it, then append the new entry"""
         # find bucket where given key belongs
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -117,7 +121,8 @@ class HashTable(object):
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
-        Running time: O(n) because we look into every bucket to determine wether or not the value is there until we find it"""
+        Running time: O(n) because we look into every bucket to determine
+        wether or not the value is there until we find it"""
         # Find bucket where given key belongs
         bucket = self.buckets[self._bucket_index(key)]
         value = self.get(key)
