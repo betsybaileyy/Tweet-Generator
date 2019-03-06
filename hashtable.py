@@ -61,8 +61,8 @@ class HashTable(object):
         length = 0
         pair = []
         # Loop through all buckets
-        for bucket in self.buckets:
-            length += bucket.length()
+        for bucket in self.buckets: # O(b) b = number of buckets
+            length += bucket.length() # O(l) l = avg. length of each bucket
         return length
 
 
@@ -130,10 +130,10 @@ class HashTable(object):
         # Check if key-value entry exists in bucket
         tuple_exist = self.contains(key)
         # If found, delete entry associated with given key
-        if tuple_exist is True:
-            bucket.delete(tuple)
+        if tuple_exist is True: # O(1) constant time
+            bucket.delete(tuple)  # O(l)
         else: #Otherwise, raise error to tell user delete failed
-            raise KeyError('Key not found: {}'.format(key))
+            raise KeyError('Key not found: {}'.format(key)) # O(1) constant time
 
 
 def test_hash_table():
