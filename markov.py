@@ -1,13 +1,10 @@
-
-from dictogram import Dictogram # bc my code is modular we can reuse the Dictogram class :) ygg
+from dictogram import Dictogram
 from sample import weighted_random, histogram
-
+import random
 
 word_list = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
 
-'''
-BIG shoutout to Ansel for helping me with this function. THANK YOU ANSEL!!
-'''
+''' BIG shoutout to Ansel for helping me with this function. THANK YOU ANSEL!! '''
 def markov_markov(word_list): #takes in the word_list
 
     new_exciting_dictogram = {} #creating the new dictogram variable, set as empty (obviously)
@@ -24,25 +21,35 @@ def markov_markov(word_list): #takes in the word_list
 
     return new_exciting_dictogram #dictionary
 
-print('markov markov:')
-print(markov_markov(word_list))
+# print('markov markov:')
+# print(markov_markov(word_list))
 
-markov_model = markov_markov(word_list)
-
+# markov_model = markov_markov(word_list)
 
 def get_next_word(new_exciting_dictogram, word):
     inner_dictionary = new_exciting_dictogram[word]
     next_random_word = weighted_random(inner_dictionary)
     return next_random_word
 
-# def generate_sentences(dictionary):
-#     first_word = dictionary.keys()[0]
-#     second word
+'''Thank you for helping me understand this soooo much better, Phyllis!'''
+def generate_sentences(new_exciting_dictogram):
+    first_word = list(new_exciting_dictogram.keys())[0]
+    second_word = get_next_word(new_exciting_dictogram, first_word)
+    phrase = first_word + ' ' + second_word + ' '
+
+    previous_word = second_word
+
+    for word in range(0, random.randint(1,101)):
+        new_word = get_next_word(new_exciting_dictogram, previous_word)
+        previous_word = new_word
+        phrase += new_word + ' '
+    return phrase
+
 
 
 
 # print("next word dict : " + (str(next_word_dict)))
-'''Thank you for helping me understand this soooo much better, Phyllis!'''
+
 # pass in markov to generate generate_sentenc
 #     set wordslist as an empty ARRAY
 #     first_word = weighted_random
@@ -54,6 +61,11 @@ def get_next_word(new_exciting_dictogram, word):
 #        set first word equal to next word
 #
 
+if __name__ == "__main__":
+    sentence = markov_markov(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish'])
+    print(sentence)
+    print(get_next_word(sentence, 'fish'))
+    print(generate_sentences(sentence))
 
 
 
