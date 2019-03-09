@@ -12,46 +12,23 @@ this get_random_word function. Thank you, Justin!!!
 def get_random_word(histogram):
 
     keys = histogram.keys()
-    # print('Keys: {}'.format(keys))
     word_list = list(keys)
     random_index = random.randint(0, len(keys)-1)
     random_word = word_list[random_index]
 
     return random_word
 
-# Getting a random word taking into account the frequency
-# of that word, which will affect the likelyhood of that
-# word being chosen.
 '''
 Thank you ALAN for getting me unblocked with this function :)
+A copy of this code thuroughly commented is below, wanted to clean this up.
 '''
 def weighted_random(histogram):
-    # Declaring tokens (total number of word occurences)
     tokens = 0
-    # Setting the cumulative probobility
-    # (numerical liklieness of a word being chosen) to zero.
     cumulative_prob = 0.0
 
-    # Going through each key-value pair of words and frequencys (stored as a list)
-    # in a list and adding each value at index number 1 (the frequency of that word)
-    # to create a total sum, which will be the total number of tokens.
     for word, frequency in histogram.items():
-        # print(type(histogram))
-        print('frequency {}'.format(frequency))
         tokens += frequency
-        print('tokens {}'.format(tokens))
 
-#          File         "/Users/betsybailey/Documents/Code/Tweet-Generator/sample.py", line 41, in weighted_random
-#     tokens += frequency
-# TypeError: unsupported operand type(s) for +=: 'int' and 'Dictogram'
-
-        #it is getting mad because tokens or frequenct is stored as dictionary somewhere.
-
-    # Random.uniform will return us a float between 0 and 0.99 that we will then
-    # use to compare to the cumulative probability. If the cumulative_prob(ability)
-    # is larger than the random number we will choose the string at index number 0
-    # of the key-value pair (the word), if not, we will continue onto the next
-    # key value pair until the cumulative_prob is larger than the random number,
     random_number = random.uniform(0,1)
 
     for word, frequency in histogram.items():
@@ -60,12 +37,10 @@ def weighted_random(histogram):
         if cumulative_prob >= random_number:
             return word
 
-# print(weighted_random(histogram))
 
 def rand_test(histogram):
-    # for (let i = 0; i < 10000; i+=1) {}
     new_histogram = {}
-    counter = 1000000 #0000
+    counter = 1000000
     new_list = []
     while counter:
         random_word = weighted_random(histogram)
@@ -81,3 +56,54 @@ if __name__ == "__main__":
     print(weighted_random(histogram))
     print("Testing for True Randomness:")
     print(rand_test(histogram))
+
+
+
+
+
+
+
+# '''Below are all of the notes and comments I made while writing
+# the weighted random funcion, put them down here to clean up'''
+#
+# # Getting a random word taking into account the frequency
+# # of that word, which will affect the likelyhood of that
+# # word being chosen.
+# '''
+# Thank you ALAN for getting me unblocked with this function :)
+# '''
+# # def weighted_random(histogram):
+# '''Declaring tokens (total number of word occurences)'''
+#     # tokens = 0
+# '''Setting the cumulative probobility
+# (numerical liklieness of a word being chosen) to zero.'''
+    # cumulative_prob = 0.0
+
+    # Going through each key-value pair of words and frequencys (stored as a list)
+    # in a list and adding each value at index number 1 (the frequency of that word)
+    # to create a total sum, which will be the total number of tokens.
+# '''This is actual code below'''
+    # for word, frequency in histogram.items():
+        # print(type(histogram))
+        # print('frequency {}'.format(frequency)) //dont need this
+        # tokens += frequency
+        # print('tokens {}'.format(tokens)) // dont need this
+ # '''this is an error'''
+#          File         "/Users/betsybailey/Documents/Code/Tweet-Generator/sample.py", line 41, in weighted_random
+#     tokens += frequency
+# TypeError: unsupported operand type(s) for +=: 'int' and 'Dictogram'
+
+        #it is getting mad because tokens or frequenct is stored as dictionary somewhere.
+
+# '''Random.uniform will return us a float between 0 and 0.99 that we will then
+# use to compare to the cumulative probability. If the cumulative_prob(ability)
+# is larger than the random number we will choose the string at index number 0
+# of the key-value pair (the word), if not, we will continue onto the next
+# key value pair until the cumulative_prob is larger than the random number,'''
+    # random_number = random.uniform(0,1)
+    #
+    # for word, frequency in histogram.items():
+    #     cumulative_prob += frequency/tokens
+    #
+    #     if cumulative_prob >= random_number:
+    #         return word
