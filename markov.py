@@ -63,18 +63,24 @@ def second_order_markov(text):
             second_order_markov_dict[second_order_markov_tuple].add_count(third_word)
     return second_order_markov_dict
 
-# print("next word dict : " + (str(next_word_dict)))
 
-# pass in markov to generate generate_sentenc
-#     set wordslist as an empty ARRAY
-#     first_word = weighted_random
-#     append first word to words lists
-#         look into the markov of "following words" for first_word
-#         use weighted random to choose a word from "following words" (what is real code for "following words")
-#         to be next_word
-#          append next word to the sentence
-#        set first word equal to next word
-#
+def second_order_sentence(new_exciting_dictogram):
+
+    sentence_list = []
+
+    first_word = new_exciting_dictogram.keys()[0]
+    second_word = get_next_word(new_exciting_dictogram, first_word)
+    sentence.append(first_word)
+    sentence.append(second_word)
+    previous_word = second_word
+
+    for word in range(0, random.randint(1,101)):
+        new_word = get_next_word(new_exciting_dictogram, previous_word)
+        previous_word = new_word
+        sentence += new_word + ' '
+    return ' '.join(sentence)
+
+
 
 # f.read(tyra_banks_rant.txt)
 #     # setting the words variable and telling it to read the words and split them
@@ -100,6 +106,21 @@ if __name__ == "__main__":
     # print(get_next_word(sentence, 'fish'))
     # print(generate_sentences(sentence))
     print(second_order_markov(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish', 'end']))
+
+
+
+# print("next word dict : " + (str(next_word_dict)))
+
+# pass in markov to generate generate_sentenc
+#     set wordslist as an empty ARRAY
+#     first_word = weighted_random
+#     append first word to words lists
+#         look into the markov of "following words" for first_word
+#         use weighted random to choose a word from "following words" (what is real code for "following words")
+#         to be next_word
+#          append next word to the sentence
+#        set first word equal to next word
+#
 
 
 
