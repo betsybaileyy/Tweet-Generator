@@ -47,7 +47,21 @@ def generate_sentences(new_exciting_dictogram):
     return phrase
 
 
+def second_order_markov(text):
+    second_order_markov_dict = {}
+    for index in range(len(text) - 2):
+        word = text[index]
+        next_word = text[index + 1]
+        third_word = text[index + 2]
 
+        second_order_markov_tuple = (word, next_word)
+
+        if second_order_markov_tuple not in second_order_markov_dict:
+            add_to_dictionary = Dictogram([third_word])
+            second_order_markov_dict[second_order_markov_tuple] = add_to_dictionary
+        else:
+            second_order_markov_dict[second_order_markov_tuple].add_count(third_word)
+    return second_order_markov_dict
 
 # print("next word dict : " + (str(next_word_dict)))
 
@@ -81,11 +95,11 @@ def generate_sentences(new_exciting_dictogram):
     # proper_grammar = grammar.capitalize()
 
 if __name__ == "__main__":
-    sentence = markov_markov(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish'])
+    # sentence = markov_markov(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish'])
     # print(sentence)
-    print(get_next_word(sentence, 'fish'))
-    print(generate_sentences(sentence))
-    # print(second_order(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish', 'end']))
+    # print(get_next_word(sentence, 'fish'))
+    # print(generate_sentences(sentence))
+    print(second_order_markov(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish', 'end']))
 
 
 
