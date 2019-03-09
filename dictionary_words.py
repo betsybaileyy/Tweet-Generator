@@ -2,7 +2,7 @@ import random
 import sys
 
 # opening the file of english words on the Mac OS
-with open('/usr/share/dict/words') as f:
+with open('tyra-banks-rant.txt') as f:
     # setting the words variable and telling it to read the words and split them
     words = f.read().split()
     # taking in the number of words in sentence as a command line argument
@@ -20,4 +20,5 @@ with open('/usr/share/dict/words') as f:
     grammar = ' '.join(sentence) + ('.')
     proper_grammar = grammar.capitalize()
 
+if __name__ == "__main__":
     print(proper_grammar)

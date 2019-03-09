@@ -1,6 +1,11 @@
 from dictogram import Dictogram
 from sample import weighted_random, histogram
 import random
+import sys
+
+# with open('tyra-banks-rant.txt') as f:
+#     # setting the words variable and telling it to read the words and split them
+#     words = f.read().split()
 
 word_list = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
 
@@ -21,17 +26,13 @@ def markov_markov(word_list): #takes in the word_list
 
     return new_exciting_dictogram #dictionary
 
-# print('markov markov:')
-# print(markov_markov(word_list))
-
-# markov_model = markov_markov(word_list)
 
 def get_next_word(new_exciting_dictogram, word):
     inner_dictionary = new_exciting_dictogram[word]
     next_random_word = weighted_random(inner_dictionary)
     return next_random_word
 
-'''Thank you for helping me understand this soooo much better, Phyllis!'''
+'''Thank you for helping me understand this soooo much better, Phyllis! Thank you to Stephanie, too :)'''
 def generate_sentences(new_exciting_dictogram):
     first_word = list(new_exciting_dictogram.keys())[0]
     second_word = get_next_word(new_exciting_dictogram, first_word)
@@ -61,12 +62,30 @@ def generate_sentences(new_exciting_dictogram):
 #        set first word equal to next word
 #
 
+# f.read(tyra_banks_rant.txt)
+#     # setting the words variable and telling it to read the words and split them
+# words = f.read().split()
+    # taking in the number of words in sentence as a command line argument
+    # number_of_words = int(sys.argv[1])
+
+    # setting the sentence as an array
+    # sentence = []
+
+    # making a for loop to iterate through the list of words _ number of times
+    # for i in range(number_of_words):
+    #     random_word = random.choice(words)
+    #     sentence.append(random_word)
+
+    # formatting the output with capitilization and punctuation to create a cohesive sentence
+    # grammar = ' '.join(sentence) + ('.')
+    # proper_grammar = grammar.capitalize()
+
 if __name__ == "__main__":
     sentence = markov_markov(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish'])
-    print(sentence)
+    # print(sentence)
     print(get_next_word(sentence, 'fish'))
     print(generate_sentences(sentence))
-
+    # print(second_order(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish', 'end']))
 
 
 
