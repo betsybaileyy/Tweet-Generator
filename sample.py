@@ -37,8 +37,15 @@ def weighted_random(histogram):
     # to create a total sum, which will be the total number of tokens.
     for word, frequency in histogram.items():
         # print(type(histogram))
-        # print(word)
+        print('frequency {}'.format(frequency))
         tokens += frequency
+        print('tokens {}'.format(tokens))
+
+#          File         "/Users/betsybailey/Documents/Code/Tweet-Generator/sample.py", line 41, in weighted_random
+#     tokens += frequency
+# TypeError: unsupported operand type(s) for +=: 'int' and 'Dictogram'
+
+        #it is getting mad because tokens or frequenct is stored as dictionary somewhere.
 
     # Random.uniform will return us a float between 0 and 0.99 that we will then
     # use to compare to the cumulative probability. If the cumulative_prob(ability)
