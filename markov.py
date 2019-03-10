@@ -3,11 +3,11 @@ from sample import weighted_random, histogram
 import random
 import sys
 
-# with open('tyra-banks-rant.txt') as f:
+with open('tyra_banks_rant.txt') as f:
 #     # setting the words variable and telling it to read the words and split them
-#     words = f.read().split()
+    word_list = f.read().split()
 
-word_list = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
+# word_list = ['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish']
 
 ''' BIG shoutout to Ansel for helping me with this function. THANK YOU ANSEL!! '''
 def markov_markov(word_list): #takes in the word_list
@@ -68,44 +68,31 @@ def second_order_sentence(new_exciting_dictogram):
 
     sentence_list = []
 
-    first_word = new_exciting_dictogram.keys()[0]
+    first_word = list(new_exciting_dictogram.keys())[0]
     second_word = get_next_word(new_exciting_dictogram, first_word)
-    sentence.append(first_word)
-    sentence.append(second_word)
+    sentence_list.append(first_word)
+    sentence_list.append(second_word)
     previous_word = second_word
 
     for word in range(0, random.randint(1,101)):
         new_word = get_next_word(new_exciting_dictogram, previous_word)
         previous_word = new_word
-        sentence += new_word + ' '
-    return ' '.join(sentence)
-
-
-
-# f.read(tyra_banks_rant.txt)
-#     # setting the words variable and telling it to read the words and split them
-# words = f.read().split()
-    # taking in the number of words in sentence as a command line argument
-    # number_of_words = int(sys.argv[1])
-
-    # setting the sentence as an array
-    # sentence = []
-
-    # making a for loop to iterate through the list of words _ number of times
-    # for i in range(number_of_words):
-    #     random_word = random.choice(words)
-    #     sentence.append(random_word)
-
-    # formatting the output with capitilization and punctuation to create a cohesive sentence
-    # grammar = ' '.join(sentence) + ('.')
-    # proper_grammar = grammar.capitalize()
+        sentence_list += new_word + ' '
+    return ''.join(sentence_list)
 
 if __name__ == "__main__":
-    # sentence = markov_markov(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish'])
-    # print(sentence)
-    # print(get_next_word(sentence, 'fish'))
-    # print(generate_sentences(sentence))
-    print(second_order_markov(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish', 'end']))
+    with open('gameOfThrones.txt') as file:
+        text = file.read()
+    tyra_text = text.split()
+    make_sentence = markov_markov(tyra_text)
+    # seuss_txt = "one fish two fish red fish blue fish"
+    # make_sentence = seuss_txt.split()
+    # print(make_sentence)
+    # print(get_next_word(make_sentence, 'fish'))
+
+    print(generate_sentences(make_sentence))
+    # fish_string = second_order_markov(['one', 'fish', 'two', 'fish', 'red', 'fish', 'blue', 'fish', 'end'])
+    print(second_order_sentence(make_sentence))
 
 
 
