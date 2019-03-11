@@ -81,7 +81,7 @@ def second_order_sentence(new_exciting_dictogram):
     return ''.join(sentence_list)
 
 if __name__ == "__main__":
-    with open('gameOfThrones.txt') as file:
+    with open('walden.txt') as file:
         text = file.read()
     tyra_text = text.split()
     make_sentence = markov_markov(tyra_text)
